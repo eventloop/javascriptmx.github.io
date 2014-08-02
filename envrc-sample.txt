@@ -1,0 +1,7 @@
+# if using direnv just rename to .envrc
+
+layout node
+export NODE_PATH="$NODE_PATH:./app"
+export MONGO_URL="mongodb://localhost/jsmexico"
+#export MONGO_DEBUG=1
+export SECRET="LONG STRING!!!1!one"

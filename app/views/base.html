@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/bower/pure/pure.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/bower/fontawesome/css/font-awesome.css">
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="/bower/pure/grids-responsive-old-ie-min.css">
+	<![endif]-->
+	<!--[if gt IE 8]><!-->
+	<link rel="stylesheet" href="/bower/pure/grids-responsive-min.css">
+
+	<!--<![endif]-->
+	<title>{% block title %}{{ siteName }}{% endblock %}</title>
+
+	{% block basehead %}{% endblock %}
+</head>
+<body>
+	<div class="header">
+		<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+			<a class="pure-menu-heading" href="/">{{ siteName }}</a>
+
+			<ul>
+				<li class="pure-menu-selected"><a href="/">Inicio</a></li>
+				<li><a href="#">Tour</a></li>
+				{% if user %}
+				<li><a href="#">Perfil</a></li>
+				<li><a href="/logout">Cerrar sesión</a></li>
+				{% else %}
+				<li><a href="/signup">Registro</a></li>
+				<li><a href="/login">Iniciar sesión</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+
+	{% block basecontent %}{% endblock %}
+
+	<script type="text/javascript" src="/bower/jquery/dist/jquery.js"></script>
+	{% block js %}{% endblock %}
+</body>
+</html>

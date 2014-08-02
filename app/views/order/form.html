@@ -1,0 +1,14 @@
+{% extends '../layout.html' %}
+{% block content %}
+<div class="pure-u-1">
+	<form method="POST" role="form" class="pure-form pure-form-aligned" enctype="multipart/form-data">
+		<div class="pure-control-group">
+			<label for="file">Sube tu tarjeta en formato PDF o AI</label>
+			<input type="file" id="file" name="attachment">
+		</div>
+		<div class="pure-controls">
+			<button type="submit" class="pure-button pure-button-primary">Subir</button>
+		</div>
+	</form>
+</div>
+{% endblock %}
