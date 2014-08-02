@@ -22,6 +22,8 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/app/views');
 app.set('view cache', false);
 
+swig.setDefaults({ cache: false });
+
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(require('cookie-parser')(process.env.SECRET))
