@@ -9,7 +9,7 @@ DEEP COLOR CODE: #bb9e0a
 ----------------------------------------- */
 
 .color-overlay {
-    background: rgba(229, 196, 26, 0.9);
+    background: rgba(229, 196, 26, 0.95);
 }
 
 .standard-button {
@@ -67,6 +67,10 @@ DEEP COLOR CODE: #bb9e0a
     background: #e5c41a;
 }
 
+footer {
+    background: rgba(229, 196, 26, 0.95);
+}
+
 footer .contact-button {
     border: 2px solid #e5c41a;
     color: #e5c41a;
@@ -84,5 +88,5 @@ footer .contact-box .expanded-contact-form .textarea-box:focus {
 }
 
 footer .social-icons li a:hover {
-    color: #e5c41a;
+    color: white;
 }

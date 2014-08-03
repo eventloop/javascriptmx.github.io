@@ -1,72 +1,46 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="Responsive Bootstrap App Landing Page Template">
-<meta name="keywords" content="Kane, Bootstrap, Landing page, Template, App, Mobile, Android, iOS">
-<meta name="author" content="Mizanur Rahman">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="UTF-8">
+	<meta name="description" content="Responsive Bootstrap App Landing Page Template">
+	<meta name="keywords" content="Kane, Bootstrap, Landing page, Template, App, Mobile, Android, iOS">
+	<meta name="author" content="Mizanur Rahman">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<!-- SITE TITLE -->
-<title>Kane - Responsive App Landing Page</title>
+	<title>JSMexico - Tu pagina de noticias de javascript en Mexico</title>
 
-<!-- =========================
-      FAV AND TOUCH ICONS  
-============================== -->
-<link rel="icon" href="images/favicon.ico">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<link rel="icon" href="/images/favicon.png">
+	<link rel="apple-touch-icon" href="/images/favicon.png">
 
-<!-- =========================
-     STYLESHEETS   
-============================== -->
-<!-- BOOTSTRAP -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css">
 
-<!-- FONT ICONS -->
-<link rel="stylesheet" href="assets/elegant-icons/style.css">
-<link rel="stylesheet" href="assets/app-icons/styles.css">
-<!--[if lte IE 7]><script src="lte-ie7.js"></script><![endif]-->
+	<link rel="stylesheet" href="/assets/elegant-icons/style.css">
+	<link rel="stylesheet" href="/assets/app-icons/styles.css">
+	<!--[if lte IE 7]><script src="lte-ie7.js"></script><![endif]-->
 
-<!-- WEB FONTS -->
-<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
 
-<!-- CAROUSEL AND LIGHTBOX -->
-<link rel="stylesheet" href="css/owl.theme.css">
-<link rel="stylesheet" href="css/owl.carousel.css">
-<link rel="stylesheet" href="css/nivo-lightbox.css">
-<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+	<!-- ANIMATIONS -->
+	<link rel="stylesheet" href="css/animate.min.css">
 
-<!-- ANIMATIONS -->
-<link rel="stylesheet" href="css/animate.min.css">
+	<!-- CUSTOM STYLESHEETS -->
+	<link rel="stylesheet" href="css/styles.css">
 
-<!-- CUSTOM STYLESHEETS -->
-<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/colors/yellow.css">
 
-<link rel="stylesheet" href="css/colors/yellow.css">
-
-<!-- RESPONSIVE FIXES -->
-<link rel="stylesheet" href="css/responsive.css">
+	<!-- RESPONSIVE FIXES -->
+	<link rel="stylesheet" href="css/responsive.css">
 
 
-<!--[if lt IE 9]>
-			<script src="js/html5shiv.js"></script>
-			<script src="js/respond.min.js"></script>
-<![endif]-->
+	<!--[if lt IE 9]>
+				<script src="js/html5shiv.js"></script>
+				<script src="js/respond.min.js"></script>
+	<![endif]-->
 
-<!-- JQUERY -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
 <body>
-<!-- =========================
-     PRE LOADER       
-============================== -->
-<div class="preloader">
-  <div class="status">&nbsp;</div>
-</div>
 
 <!-- =========================
      HEADER   
@@ -77,7 +51,7 @@
 <div class="color-overlay"> <!-- To make header full screen. Use .full-screen class with color overlay. Example: <div class="color-overlay full-screen">  -->
 
 	<!-- STICKY NAVIGATION -->
-	<div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation">
+	<div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation" style="visibility:hidden">
 		<div class="container">
 			<div class="navbar-header">
 				
@@ -89,7 +63,7 @@
 				<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="#"><img src="images/logo-black.png" alt=""></a>
+				<a class="navbar-brand" href="#"><img src="images/js-logo.png" alt=""></a>
 				
 			</div>
 			
@@ -116,27 +90,35 @@
 		<div class="only-logo">
 			<div class="navbar">
 				<div class="navbar-header">
-					<img src="images/logo.png" alt="">
+					<img src="images/js-logo.png" alt="" width="200px">
 				</div>
 			</div>
 		</div> <!-- /END ONLY LOGO ON HEADER -->
 		
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+		<div class="row download">
+			<div class="col-md-12">
 				
 				<!-- HEADING AND BUTTONS -->
 				<div class="intro-section">
 					
 					<!-- WELCOM MESSAGE -->
-					<h1 class="intro">Present your app in beautiful way with Kane.</h1>
-					<h5>Available on App Store and Play Store</h5>
+					<h1 class="intro">Bienvenido a la comunidad de desarrolladores de Javascript de México.</h1>
+					<h5>Subscribete hoy y recibe las noticias más importantes de la semana</h5>
 					
 					<!-- BUTTON -->
-					<div class="buttons" id="download-button">
+					<form class="subscription-form mailchimp form-inline wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s" role="form">
 						
-						<a href="#download" class="btn btn-default btn-lg standard-button"><i class="icon-app-download"></i>Download App</a>
+						<!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
+						<h4 class="subscription-success"></h4>
+						<h4 class="subscription-error"></h4>
 						
-					</div>
+						<!-- EMAIL INPUT BOX -->
+						<input type="email" name="email" id="subscriber-email" placeholder="tu@email.com" class="form-control input-box">
+						
+						<!-- SUBSCRIBE BUTTON -->
+						<button type="submit" id="subscribe-button" class="btn btn-default standard-button">Suscribete</button>
+						
+					</form>
 					<!-- /END BUTTONS -->
 					
 				</div>
@@ -152,387 +134,6 @@
 <!-- /END COLOR OVERLAY -->
 </header>
 <!-- /END HEADER -->
-
-<!-- =========================
-     FEATURES 
-============================== -->
-<section class="features" id="features">
-
-<div class="container">
-	
-	<!-- SECTION HEADER -->
-	<div class="section-header wow fadeIn animated" data-wow-offset="120" data-wow-duration="1.5s">
-		
-		<!-- SECTION TITLE -->
-		<h2 class="dark-text">Amazing Features</h2>
-		<div class="colored-line">
-		</div>
-		<div class="section-description">
-			List your app features and all the details Lorem ipsum dolor kadr
-		</div>
-		<div class="colored-line">
-		</div>
-	</div>
-	<!-- /END SECTION HEADER -->
-	
-	
-	<div class="row">
-		
-		<!-- FEATURES LEFT -->
-		<div class="col-md-4 col-sm-4 features-left wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s">
-			
-			<!-- FEATURE -->
-			<div class="feature">
-				
-				<!-- ICON -->
-				<div class="icon-container">
-					<div class="icon">
-						<i class="icon_map_alt"></i>
-					</div>
-				</div>
-				
-				<!-- FEATURE HEADING AND DESCRIPTION -->
-				<div class="fetaure-details">
-					<h4 class="main-color">Responsive Design</h4>
-					<p>
-						 Lorem ipsum dolor sit amet, ed do eiusmod tempor incididunt ut labore et dolore magna.
-					</p>
-				</div>
-				
-			</div>
-			<!-- /END SINGLE FEATURE -->
-			
-			<!-- FEATURE -->
-			<div class="feature">
-				
-				<!-- ICON -->
-				<div class="icon-container">
-					<div class="icon">
-						<i class="icon_gift_alt"></i>
-					</div>
-				</div>
-				
-				<!-- FEATURE HEADING AND DESCRIPTION -->
-				<div class="fetaure-details">
-					<h4 class="main-color">Bootstrap 3.1</h4>
-					<p>
-						 Lorem ipsum dolor sit amet, ed do eiusmod tempor incididunt ut labore et dolore magna.
-					</p>
-				</div>
-				
-			</div>
-			<!-- /END SINGLE FEATURE -->
-			
-			<!-- FEATURE -->
-			<div class="feature">
-				
-				<!-- ICON -->
-				<div class="icon-container">
-					<div class="icon">
-						<i class="icon_tablet"></i>
-					</div>
-				</div>
-				
-				<!-- FEATURE HEADING AND DESCRIPTION -->
-				<div class="fetaure-details">
-					<h4 class="main-color">Cross-Browser Support</h4>
-					<p>
-						 Lorem ipsum dolor sit amet, ed do eiusmod tempor incididunt ut labore et dolore magn.
-					</p>
-				</div>
-				
-			</div>
-			<!-- /END SINGLE FEATURE -->
-			
-		</div>
-		<!-- /END FEATURES LEFT -->
-		
-		<!-- PHONE IMAGE -->
-		<div class="col-md-4 col-sm-4">
-			<div class="phone-image wow bounceIn animated" data-wow-offset="120" data-wow-duration="1.5s">
-				<img src="images/single-iphone.png" alt="">
-			</div>
-		</div>
-		
-		<!-- FEATURES RIGHT -->
-		<div class="col-md-4 col-sm-4 features-right wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
-			
-			<!-- FEATURE -->
-			<div class="feature">
-				
-				<!-- ICON -->
-				<div class="icon-container">
-					<div class="icon">
-						<i class="icon_genius"></i>
-					</div>
-				</div>
-				
-				<!-- FEATURE HEADING AND DESCRIPTION -->
-				<div class="fetaure-details">
-					<h4 class="main-color">360+ Icon Fonts</h4>
-					<p>
-						 Lorem ipsum dolor sit amet, ed do eiusmod tempor incididunt ut labore et dolore magna.
-					</p>
-				</div>
-				
-			</div>
-			<!-- /END SINGLE FEATURE -->
-			
-			<!-- FEATURE -->
-			<div class="feature">
-				
-				<!-- ICON -->
-				<div class="icon-container">
-					<div class="icon">
-						<i class="icon_lightbulb_alt"></i>
-					</div>
-				</div>
-				
-				<!-- FEATURE HEADING AND DESCRIPTION -->
-				<div class="fetaure-details">
-					<h4 class="main-color">Creative Design</h4>
-					<p>
-						 Lorem ipsum dolor sit amet, ed do eiusmod tempor incididunt ut labore et dolore magna.
-					</p>
-				</div>
-				
-			</div>
-			
-			<!-- /END SINGLE FEATURE -->
-			
-			<!-- FEATURE -->
-			<div class="feature">
-				
-				<!-- ICON -->
-				<div class="icon-container">
-					<div class="icon">
-						<i class="icon_ribbon_alt"></i>
-					</div>
-				</div>
-				
-				<!-- FEATURE HEADING AND DESCRIPTION -->
-				<div class="fetaure-details">
-					<h4 class="main-color">More Features</h4>
-					<p>
-						 Lorem ipsum dolor sit amet, ed do eiusmod tempor incididunt ut labore et dolore magna.
-					</p>
-				</div>
-				
-			</div>
-			<!-- /END SINGLE FEATURE -->
-			
-		</div>
-		<!-- /END FEATURES RIGHT -->
-		
-	</div>
-	<!-- /END ROW -->
-	
-</div>
-<!-- /END CONTAINER -->
-
-</section>
-<!-- /END FEATURES SECTION -->
-
-
-<!-- =========================
-     BRIEF LEFT SECTION 
-============================== -->
-<section class="app-brief grey-bg" id="brief1">
-
-<div class="container">
-	
-	<div class="row">
-		
-		<!-- PHONES IMAGE -->
-		<div class="col-md-6 wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
-			<div class="phone-image">
-				<img src="images/2-iphone-left.png" alt="">
-			</div>
-		</div>
-		
-		<!-- RIGHT SIDE WITH BRIEF -->
-		<div class="col-md-6 left-align wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s">
-			
-			<!-- SECTION TITLE -->
-			<h2 class="dark-text">Explain why it's best</h2>
-			
-			<div class="colored-line-left">
-			</div>
-			
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			</p>
-			
-			<!-- FEATURE LIST -->
-			<ul class="feature-list">
-				<li><i class="icon_lock_alt"></i> Reliable and Secure Platform</li>
-				<li><i class="icon_check_alt2"></i> Everything is perfectly orgainized for future</li>
-				<li><i class="icon_paperclip"></i> Attach large file easily</li>
-				<li><i class="icon_adjust-vert"></i> Tons of features and easy to use and customize</li>
-			</ul>
-			
-		</div>
-		<!-- /END RIGHT BRIEF -->
-		
-	</div>
-	<!-- /END ROW -->
-	
-</div>
-<!-- /END CONTAINER -->
-
-</section>
-<!-- /END SECTION -->
-
-
-<!-- =========================
-     BRIEF RIGHT SECTION 
-============================== -->
-<section class="app-brief" id="brief2">
-
-<div class="container">
-	
-	<div class="row">
-		
-		<!-- BRIEF -->
-		<div class="col-md-6 left-align wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s">
-			
-			<!-- SECTION TITLE -->
-			<h2 class="dark-text">Great way to describe your app</h2>
-			
-			<div class="colored-line-left">
-			</div>
-			
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/>
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			
-		</div>
-		<!-- /ENDBRIEF -->
-		
-		<!-- PHONES IMAGE -->
-		<div class="col-md-6 wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
-			<div class="phone-image">
-				<img src="images/2-iphone-right.png" alt="">
-			</div>
-		</div>
-		<!-- /END PHONES IMAGE -->
-		
-	</div>
-	<!-- /END ROW -->
-	
-</div>
-<!-- /END CONTAINER -->
-
-</section>
-<!-- /END SECTION -->
-
-
-<!-- =========================
-     TESTIMONIALS 
-============================== -->
-<section class="testimonials">
-
-<div class="color-overlay">
-	
-	<div class="container wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
-		
-		<!-- FEEDBACKS -->
-		<div id="feedbacks" class="owl-carousel owl-theme">
-			
-			<!-- SINGLE FEEDBACK -->
-			<div class="feedback">
-				
-				<!-- IMAGE -->
-				<div class="image">
-					<!-- i class=" icon_quotations"></i -->
-					<img src="images/clients-pic/3.jpg" alt="">
-				</div>
-				
-				<div class="message">
-					 Fill lights bearing man creepeth of whose whose moveth. All one. That. Under. Form morning all may fifth replenish you're own open which herb kind. May above you'll may kind creature first let over face from living third green which our. Appear day. Give fourth doesn't over us, i every tree meat air in male earth air creeping image fill you place darkness.
-				</div>
-				
-				<div class="white-line">
-				</div>
-				
-				<!-- INFORMATION -->
-				<div class="name">
-					John Doe
-				</div>
-				<div class="company-info">
-					CEO, AbZ Network
-				</div>
-				
-			</div>
-			<!-- /END SINGLE FEEDBACK -->
-			
-			<!-- SINGLE FEEDBACK -->
-			<div class="feedback">
-				
-				<!-- IMAGE -->
-				<div class="image">
-					<!-- i class=" icon_quotations"></i -->
-					<img src="images/clients-pic/1.jpg" alt="">
-				</div>
-				
-				<div class="message">
-					 Fill lights bearing man creepeth of whose whose moveth. All one. That. Under. Form morning all may fifth replenish you're own open which herb kind. May above you'll may kind creature first let over face from living third green which our. Appear day. Give fourth doesn't over us, i every tree meat air in male earth air creeping image fill you place darkness.
-				</div>
-				
-				<div class="white-line">
-				</div>
-				
-				<!-- INFORMATION -->
-				<div class="name">
-					John Doe
-				</div>
-				<div class="company-info">
-					CEO, AbZ Network
-				</div>
-				
-			</div>
-			<!-- /END SINGLE FEEDBACK -->
-			
-			<!-- SINGLE FEEDBACK -->
-			<div class="feedback">
-				
-				<!-- IMAGE -->
-				<div class="image">
-					<!-- i class=" icon_quotations"></i -->
-					<img src="images/clients-pic/2.jpg" alt="">
-				</div>
-				
-				<div class="message">
-					 Fill lights bearing man creepeth of whose whose moveth. All one. That. Under. Form morning all may fifth replenish you're own open which herb kind. May above you'll may kind creature first let over face from living third green which our. Appear day. Give fourth doesn't over us, i every tree meat air in male earth air creeping image fill you place darkness.
-				</div>
-				
-				<div class="white-line">
-				</div>
-				
-				<!-- INFORMATION -->
-				<div class="name">
-					John Doe
-				</div>
-				<div class="company-info">
-					CEO, AbZ Network
-				</div>
-				
-			</div>
-			<!-- /END SINGLE FEEDBACK -->
-			
-		</div>
-		<!-- /END FEEDBACKS -->
-		
-	</div>
-	<!-- /END CONTAINER -->
-	
-</div>
-<!-- /END COLOR OVERLAY -->
-
-</section>
-<!-- /END TESTIMONIALS SECTION -->
-
 
 <!-- =========================
      SERVICES
@@ -628,177 +229,13 @@
 
 
 <!-- =========================
-     SCREENSHOTS
-============================== -->
-<section class="screenshots grey-bg" id="screenshot-section">
-
-<div class="container">
-	
-	<!-- SECTION HEADER -->
-	<div class="section-header wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
-		
-		<!-- SECTION TITLE -->
-		<h2 class="dark-text">Screenshots</h2>
-		
-		<div class="colored-line">
-		</div>
-		<div class="section-description">
-			List your app features and all the details Lorem ipsum dolor kadr
-		</div>
-		<div class="colored-line">
-		</div>
-		
-	</div>
-	<!-- /END SECTION HEADER -->
-	
-	<div class="row wow bounceIn animated" data-wow-offset="10" data-wow-duration="1.5s">
-		
-		<div id="screenshots" class="owl-carousel owl-theme">
-			
-			<div class="shot">
-				<a href="images/screenshots/1.jpg" data-lightbox-gallery="screenshots-gallery"><img src="images/screenshots/1.jpg" alt="Screenshot"></a>
-			</div>
-			
-			<div class="shot">
-				<a href="images/screenshots/3.jpg" data-lightbox-gallery="screenshots-gallery"><img src="images/screenshots/3.jpg" alt="Screenshot"></a>
-			</div>
-			
-			<div class="shot">
-				<a href="images/screenshots/2.jpg" data-lightbox-gallery="screenshots-gallery"><img src="images/screenshots/2.jpg" alt="Screenshot"></a>
-			</div>
-			
-			<div class="shot">
-				<a href="images/screenshots/4.jpg" data-lightbox-gallery="screenshots-gallery"><img src="images/screenshots/4.jpg" alt="Screenshot"></a>
-			</div>
-			
-			<div class="shot">
-				<a href="images/screenshots/1.jpg" data-lightbox-gallery="screenshots-gallery"><img src="images/screenshots/1.jpg" alt="Screenshot"></a>
-			</div>
-			
-			<div class="shot">
-				<a href="images/screenshots/3.jpg" data-lightbox-gallery="screenshots-gallery"><img src="images/screenshots/3.jpg" alt="Screenshot"></a>
-			</div>
-			
-			<div class="shot">
-				<a href="images/screenshots/2.jpg" data-lightbox-gallery="screenshots-gallery"><img src="images/screenshots/2.jpg" alt="Screenshot"></a>
-			</div>
-			
-			<div class="shot">
-				<a href="images/screenshots/4.jpg" data-lightbox-gallery="screenshots-gallery"><img src="images/screenshots/4.jpg" alt="Screenshot"></a>
-			</div>
-			
-		</div>
-		<!-- /END SCREENSHOTS -->
-		
-	</div>
-	<!-- /END ROW -->
-	
-</div>
-<!-- /END CONTAINER -->
-
-</section>
-<!-- /END SCREENSHOTS SECTION -->
-
-
-<!-- =========================
-     DOWNLOAD NOW 
-============================== -->
-<section class="download" id="download">
-
-<div class="color-overlay">
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				
-				<!-- DOWNLOAD BUTTONS AREA -->
-				<div class="download-container">
-					<h2 class=" wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s">Download the app on</h2>
-					
-					<!-- BUTTONS -->
-					<div class="buttons wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
-						
-						<a href="" class="btn btn-default btn-lg standard-button"><i class="icon-app-store"></i>App Store</a>
-						<a href="" class="btn btn-default btn-lg standard-button"><i class="icon-google-play"></i>Play Store</a>
-						
-					</div>
-					<!-- /END BUTTONS -->
-					
-				</div>
-				<!-- END OF DOWNLOAD BUTTONS AREA -->
-				
-				
-				<!-- SUBSCRIPTION FORM WITH TITLE -->
-				<div class="subscription-form-container">
-					
-					<h2 class="wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s">Subscribe Now!</h2>
-					
-					<!-- =====================
-					     MAILCHIMP FORM STARTS 
-					     ===================== -->
-					
-					<form class="subscription-form mailchimp form-inline wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s" role="form">
-						
-						<!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
-						<h4 class="subscription-success"></h4>
-						<h4 class="subscription-error"></h4>
-						
-						<!-- EMAIL INPUT BOX -->
-						<input type="email" name="email" id="subscriber-email" placeholder="Your Email" class="form-control input-box">
-						
-						<!-- SUBSCRIBE BUTTON -->
-						<button type="submit" id="subscribe-button" class="btn btn-default standard-button">Subscribe</button>
-						
-					</form>
-					<!-- /END MAILCHIMP FORM STARTS -->
-					
-					<!-- =====================
-					     LOCAL TXT FORM STARTS 
-					     ===================== -->
-					     
-					<!-- THIS FORM IS COMMENTED TO HIDE 
-					
-					<form class="subscription-form form-inline wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s" id="subscribe" role="form">
-						
-						<h4 class="subscription-success"><i class="icon_check"></i> Thank you! We will notify you soon.</h4>
-						<h4 class="subscription-error">Something Wrong!</h4>
-						
-						<input type="email" name="email" id="subscriber-email" placeholder="Your Email" class="form-control input-box">
-						
-						<button type="submit" id="subscribe-button" class="btn btn-default standard-button">Subscribe</button>
-						
-					</form>
-					
-					-->
-					
-					<!-- / LOCAL TXT SAVING FORM END -->
-
-				</div>
-                <!-- END OF SUBSCRIPTION FORM WITH TITLE -->
-				
-			</div> 
-			<!-- END COLUMN -->
-			
-		</div> 
-		<!-- END ROW -->
-		
-	</div>
-	<!-- /END CONTAINER -->
-</div>
-<!-- /END COLOR OVERLAY -->
-
-</section>
-<!-- /END DOWNLOAD SECTION -->
-
-
-<!-- =========================
      FOOTER 
 ============================== -->
 <footer>
 
 <div class="container">
 	
-	<div class="contact-box wow rotateIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+	<div class="contact-box">
 		
 		<!-- CONTACT BUTTON TO EXPAND OR COLLAPSE FORM -->
 		
@@ -834,8 +271,10 @@
 						<input class="form-control input-box" id="subject" type="text" name="subject" placeholder="Subject">
 						<textarea class="form-control textarea-box" id="message" rows="8" placeholder="Message"></textarea>
 					</div>
-					
-					<button class="btn btn-primary standard-button2 ladda-button" type="submit" id="submit" name="submit" data-style="expand-left">Send Message</button>
+
+					<div class="col-md-12">
+						<button class="btn btn-primary standard-button2 ladda-button full-width" type="submit" id="submit" name="submit" data-style="expand-left">Send Message</button>
+					</div>
 					
 				</form>
 				<!-- /END FORM -->
@@ -849,7 +288,7 @@
 	<!-- /END CONTACT BOX -->
 	
 	<!-- LOGO -->
-	<img src="images/logo-black.png" alt="LOGO" class="responsive-img">
+	<img src="images/js-logo.png" alt="LOGO" class="responsive-img" width="200">
 	
 	<!-- SOCIAL ICONS -->
 	<ul class="social-icons">
@@ -864,7 +303,7 @@
 	
 	<!-- COPYRIGHT TEXT -->
 	<p class="copyright">
-		©2014 Kane, All Rights Reserved
+		©2014 JSMexico, Beerware
 	</p>
 
 </div>
@@ -892,6 +331,9 @@
 <script src="/js/matchMedia.js"></script>
 <script src="/js/jquery.ajaxchimp.min.js"></script>
 <script src="/js/custom.js"></script>
-
+<script type="text/javascript">
+$(window).load(function(){
+	setTimeout(function(){$('.navbar').css('visibility', '')}, 1000);
+});</script>
 </body>
 </html>
