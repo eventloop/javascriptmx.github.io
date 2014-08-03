@@ -556,9 +556,28 @@ header .intro-section .buttons {
     padding-bottom: 60px;
     background: #ffffff;
 }
+.services .section-header{
+    padding-bottom: 40px;
+}
+
+.services .event-link {
+    color: initial;
+}
+
+.services .event-link p{
+    text-align: justify;
+    padding: 0 20px;
+}
+
+.services .event-link > div:hover {
+    background: #eee;
+    border-radius: 5px;
+    height: 400px;
+}
 
 .services .single-service {
     padding-bottom: 60px;
+    padding-top: 60px;
 }
 
 .services .single-service .service-icon {
@@ -670,7 +689,12 @@ footer .contact-box .contact-button:hover {
 
 footer .contact-box .expanded-contact-form {
     margin-top: 40px;
-    display: none;
+}
+footer .contact-box .form-header {
+    color: white;
+}
+footer .contact-box .form-header h3{
+    font-size: 40px;
 }
 
 footer .contact-box .expanded-contact-form .success,

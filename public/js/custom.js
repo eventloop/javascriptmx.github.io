@@ -241,17 +241,6 @@ $("#contact").submit(function (e) {
 });
 
 
-
-
-/* =================================
-===  EXPAND COLLAPSE            ====
-=================================== */
-$('.expand-form').simpleexpand({
-    'defaultTarget': '.expanded-contact-form'
-});
-
-
-
 /* =================================
 ===  STELLAR                    ====
 =================================== */
