@@ -1,3 +1,5 @@
+/*jshint quotmark:false, maxlen:false, browser:true */
+/* global WOW:1 */
 /* =================================
    LOADER                     
 =================================== */
@@ -14,19 +16,20 @@ jQuery(window).load(function() {
 =================================== */
 
 $('.mailchimp').ajaxChimp({
-    callback: mailchimpCallback,
-    url: "http://webdesign7.us6.list-manage.com/subscribe/post?u=9445a2e155b82208d73433060&amp;id=16dc80e353" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".  
+	callback: function mailchimpCallback(resp) {
+		if (resp.result === 'success') {
+			$('.subscription-success')
+			.html('<i class="icon_check_alt2"></i><br/>' + resp.msg).fadeIn(1000);
+			$('.subscription-error').fadeOut(500);
+		} else if(resp.result === 'error') {
+			$('.subscription-error')
+			.html('<i class="icon_close_alt2"></i><br/>' + resp.msg).fadeIn(1000);
+		}  
+	},
+	lang: 'es',
+	url: "//jsmexico.us2.list-manage.com/subscribe/post?u=d7fe6986f079260108045fa95&amp;id=7e070c02cd"
 });
 
-function mailchimpCallback(resp) {
-     if (resp.result === 'success') {
-        $('.subscription-success').html('<i class="icon_check_alt2"></i><br/>' + resp.msg).fadeIn(1000);
-        $('.subscription-error').fadeOut(500);
-        
-    } else if(resp.result === 'error') {
-        $('.subscription-error').html('<i class="icon_close_alt2"></i><br/>' + resp.msg).fadeIn(1000);
-    }  
-}
 
 
 /* =================================
@@ -34,25 +37,26 @@ function mailchimpCallback(resp) {
 =================================== */
 
 $(document).ready(function() {
-  $('.main-navigation').onePageNav({
-    scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
-    scrollOffset: 60 //Height of Navigation Bar
-  });
-  
+	$('.main-navigation').onePageNav({
+		scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
+		scrollOffset: 60 //Height of Navigation Bar
+	});
+
 });
 
 
 /* COLLAPSE NAVIGATION ON MOBILE AFTER CLICKING ON LINK - ADDED ON V1.5*/
 
 if (matchMedia('(max-width: 480px)').matches) {
-    $('.main-navigation a').on('click', function () {
-        $(".navbar-toggle").click();
-    });
+	$('.main-navigation a').on('click', function () {
+		$(".navbar-toggle").click();
+	});
 }
 
 
 /* NAVIGATION VISIBLE ON SCROLL */
 
+var mainNav
 $(document).ready(function () {
     mainNav();
 });
@@ -62,21 +66,21 @@ $(window).scroll(function () {
 });
 
 if (matchMedia('(min-width: 992px), (max-width: 767px)').matches) {
-  function mainNav() {
-        var top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-        if (top > 40) $('.sticky-navigation').stop().animate({"top": '0'});
+	mainNav = function mainNav() {
+		var top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+		if (top > 40) $('.sticky-navigation').stop().animate({"top": '0'});
 
-        else $('.sticky-navigation').stop().animate({"top": '-60'});
-    }
+		else $('.sticky-navigation').stop().animate({"top": '-60'});
+	}
 }
 
 if (matchMedia('(min-width: 768px) and (max-width: 991px)').matches) {
-  function mainNav() {
-        var top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-        if (top > 40) $('.sticky-navigation').stop().animate({"top": '0'});
+	mainNav = function mainNav() {
+		var top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+		if (top > 40) $('.sticky-navigation').stop().animate({"top": '0'});
 
-        else $('.sticky-navigation').stop().animate({"top": '-120'});
-    }
+		else $('.sticky-navigation').stop().animate({"top": '-120'});
+	}
 }
 
 
@@ -125,11 +129,11 @@ $('a.scrollto').bind('click.smoothscroll', function (event) {
 /* =================================
 ===  WOW ANIMATION             ====
 =================================== */
-wow = new WOW(
+window.wow = new WOW(
   {
     mobile: false
   });
-wow.init();
+window.wow.init();
 
 
 /* =================================
@@ -183,7 +187,7 @@ $("#subscribe").submit(function (e) {
     function isValidEmail(emailAddress) {
         var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
         return pattern.test(emailAddress);
-    };
+    }
 
     if (isValidEmail(email)) {
         $.ajax({
@@ -220,7 +224,7 @@ $("#contact").submit(function (e) {
     function isValidEmail(emailAddress) {
         var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
         return pattern.test(emailAddress);
-    };
+    }
 
     if (isValidEmail(email) && (message.length > 1) && (name.length > 1)) {
         $.ajax({
