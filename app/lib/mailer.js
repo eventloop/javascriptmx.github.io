@@ -17,11 +17,11 @@ mandrillClient.sendContactMessage = function (data, callback) {
 		'from_name': 'JS Server Contact form',
 		'to': [{
 			'email': 'siedrix@gmail.com',
-			'name': 'Daniel Zavala',
+			'name': 'Siedrix',
 			'type': 'to'
 		},{
-			'email': 'siedrix+2@gmail.com',
-			'name': 'Daniel Zavala',
+			'email': 'jeduan@gmail.com',
+			'name': 'Jeduan',
 			'type': 'to'
 		}]
 	};
