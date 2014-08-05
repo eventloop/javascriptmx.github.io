@@ -1,6 +1,6 @@
 var express = require('express')
 var db = require('lib/db')
-db.loadModels('user', 'order')
+db.loadModels('user')
 
 var logger = require('morgan')
 var passport = require('lib/passport')
@@ -42,7 +42,7 @@ app.use('/bower', express.static(__dirname + '/bower_components'))
 
 app.use(require('middleware/flash')())
 app.use(function templateEnvironment(req, res, next) {
-	res.locals.siteName = 'tarjeta.me'
+	res.locals.siteName = 'javacriptmx'
 	res.locals.dev = (env === 'development')
 	res.locals.user = req.user
 	next()
@@ -50,7 +50,7 @@ app.use(function templateEnvironment(req, res, next) {
 
 app.get('/', function(req, res) {res.render('index')})
 app.use(require('routers/sessionRouter'))
-app.use('/order', require('routers/orderRouter'))
+app.use(require('routers/contact'))
 
 app.use(require('middleware/error-handler')())
 

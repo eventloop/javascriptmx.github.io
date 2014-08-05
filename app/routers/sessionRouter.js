@@ -20,16 +20,16 @@ router.route('/login')
 	passport.authenticate('local', function(err, user, info) {
 		if (err) return next(err)
 
-			if (!user) {
-				req.flash('error', info.message)
-				return res.redirect('/login')
-			}
+		if (!user) {
+			req.flash('error', info.message)
+			return res.redirect('/login')
+		}
 
-			req.logIn(user, function(err) {
-				if (err) return next(err)
+		req.logIn(user, function(err) {
+			if (err) return next(err)
 
-					return res.redirect(defaultRedirection)
-			})
+			return res.redirect(defaultRedirection)
+		})
 	})(req, res, next)
 })
 
@@ -54,7 +54,8 @@ router.route('/signup')
 		} else {
 			req.logIn(user, function(err) {
 				if (err) return next(err)
-					return res.redirect(defaultRedirection)
+				
+				return res.redirect(defaultRedirection)
 			})
 		}
 	}).catch(ValidationError, function(err) {
