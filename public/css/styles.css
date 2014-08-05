@@ -553,7 +553,7 @@ header .intro-section .buttons {
 
 .services {
     padding-top: 80px;
-    padding-bottom: 60px;
+    padding-bottom: 100px;
     background: #ffffff;
 }
 .services .section-header{
@@ -569,10 +569,13 @@ header .intro-section .buttons {
     padding: 0 20px;
 }
 
+.services .event-link > div {
+    height: 400px;
+}
+
 .services .event-link > div:hover {
     background: #eee;
     border-radius: 5px;
-    height: 400px;
 }
 
 .services .single-service {
