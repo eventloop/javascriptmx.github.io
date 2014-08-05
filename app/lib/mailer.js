@@ -19,7 +19,11 @@ mandrillClient.sendContactMessage = function (data, callback) {
 			'email': 'siedrix@gmail.com',
 			'name': 'Daniel Zavala',
 			'type': 'to'
-		}],
+		},{
+			'email': 'siedrix+2@gmail.com',
+			'name': 'Daniel Zavala',
+			'type': 'to'
+		}]
 	};
 
 	var async = false;
@@ -32,7 +36,6 @@ mandrillClient.sendContactMessage = function (data, callback) {
 	}, function(result) {
 		callback(null, result);
 	}, function(e) {
-		console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
 		callback(e);
 	});
 };

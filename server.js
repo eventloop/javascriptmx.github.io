@@ -50,7 +50,7 @@ app.use(function templateEnvironment(req, res, next) {
 
 app.get('/', function(req, res) {res.render('index')})
 app.use(require('routers/sessionRouter'))
-app.use(require('routers/contact'))
+app.use('/contacto', require('routers/contact'))
 
 app.use(require('middleware/error-handler')())
 

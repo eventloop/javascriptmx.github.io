@@ -21,12 +21,12 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="/css/animate.min.css">
 
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/colors/yellow.css">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/colors/yellow.css">
 
-	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="/css/responsive.css">
 	<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
@@ -98,7 +98,7 @@
 			<a class="event-link" href="http://chelajs.com/" target="_blank">
 				<div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
 					<div class="service-icon">
-						<img src="images/chela-js-logo.png" alt="" width="100px">
+						<img src="/images/chela-js-logo.png" alt="" width="100px">
 					</div>
 					<h3>ChelaJs</h3>
 					<h6>Proximo evento: 3 de Septiembre</h6>
@@ -144,25 +144,21 @@
 					<p>Deseas crear otro evento, patrocinar la comunidad o platicar con los organizadores.</p>
 				</div>
 				<div class="col-md-8 col-md-offset-2">
-					<form class="contact-form" role="form" method="POST" action="/contact">
-						<h4 class="success">
-							<i class="icon_check"></i> Your message has been sent successfully.
-						</h4>
-						<h4 class="error">
-							<i class="icon_error-circle_alt"></i> E-mail must be valid and message must be longer than 1 character.
-						</h4>
+					<form class="contact-form" role="form" method="POST" action="/contacto">
 						<div class="col-md-6">
-							<input class="form-control input-box" id="name" type="text" name="name" placeholder="Your Name">
+							<input class="form-control input-box" id="name" type="text" name="name" placeholder="Nombre">
 						</div>
 						<div class="col-md-6">
-							<input class="form-control input-box" id="email" type="email" name="email" placeholder="Your Email">
+							<input class="form-control input-box" id="email" type="email" name="email" placeholder="Email">
 						</div>
 						<div class="col-md-12">
-							<input class="form-control input-box" id="subject" type="text" name="subject" placeholder="Subject">
-							<textarea class="form-control textarea-box" id="message" name="message" rows="8" placeholder="Message"></textarea>
+							<input class="form-control input-box" id="subject" type="text" name="subject" placeholder="Título">
 						</div>
 						<div class="col-md-12">
-							<button class="btn btn-primary standard-button2 ladda-button full-width" type="submit" id="submit" name="submit" data-style="expand-left">Enviar mensaje</button>
+							<textarea class="form-control textarea-box" id="message" name="message" rows="8" placeholder="Mensaje"></textarea>
+						</div>
+						<div class="col-md-12">
+							<button class="btn btn-primary standard-button2 ladda-button full-width" type="submit" id="submit" name="submit" data-style="expand-left" disabled="disabled">Enviar mensaje</button>
 						</div>
 					</form>
 				</div>
