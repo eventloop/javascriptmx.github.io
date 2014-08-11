@@ -17,7 +17,7 @@ $('.mailchimp').ajaxChimp({
 		}
 	},
 	lang: 'es',
-	url: "//jsmexico.us2.list-manage.com/subscribe/post?u=d7fe6986f079260108045fa95&amp;id=7e070c02cd"
+	url: "//javascriptmx.us2.list-manage.com/subscribe/post?u=d7fe6986f079260108045fa95&amp;id=7e070c02cd"
 });
 
 
