@@ -9,10 +9,12 @@ $('.mailchimp').ajaxChimp({
 			$('.subscription-success')
 			.html('<i class="icon_check_alt2"></i><br/>' + resp.msg).fadeIn(1000);
 			$('.subscription-error').fadeOut(500);
+
+			ga('send', 'event', 'mailchimp', 'subscription', 'main form', 1);
 		} else if(resp.result === 'error') {
 			$('.subscription-error')
 			.html('<i class="icon_close_alt2"></i><br/>' + resp.msg).fadeIn(1000);
-		}  
+		}
 	},
 	lang: 'es',
 	url: "//jsmexico.us2.list-manage.com/subscribe/post?u=d7fe6986f079260108045fa95&amp;id=7e070c02cd"
