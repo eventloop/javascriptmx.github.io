@@ -1,6 +1,6 @@
 var express = require('express')
 var db = require('lib/db')
-db.loadModels('user')
+db.loadModels('user','newsletters')
 
 var logger = require('morgan')
 var passport = require('lib/passport')
@@ -50,7 +50,10 @@ app.use(function templateEnvironment(req, res, next) {
 
 app.get('/', function(req, res) {res.render('index')})
 app.use(require('routers/sessionRouter'))
+
+app.use('/admin', require('routers/admin'))
 app.use('/contacto', require('routers/contact'))
+app.use('/utils/campaigns', require('routers/campaigns'))
 
 app.use(require('middleware/error-handler')())
 

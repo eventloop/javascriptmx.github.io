@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+	<h1 class="page-header">Dashboard</h1>
+	<div class="gears row">
+		<div class="col-sm-6 col-lg-3 subscribers-badge dashboard-badge">
+			<div class="badge-icon"><i class="fa fa-envelope-o"></i></div>
+			<div class="badge-label">{{subscribers}} subscribers</div>
+		</div>
+	</div>
+{% endblock %}

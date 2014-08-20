@@ -24,7 +24,9 @@
     "swig": "^1.4.2",
     "underscore": "^1.6.0",
     "uuid": "^1.4.1",
-    "mandrill-api": "~1.0.40"
+    "mandrill-api": "~1.0.40",
+    "mailchimp-api": "~2.0.6",
+    "optimist": "~0.6.1"
   },
   "devDependencies": {
     "faker": "^1.0.1",
