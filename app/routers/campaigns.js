@@ -1,38 +1,54 @@
 var express = require('express'),
 	BadRequestError = require('errors').BadRequestError,
-	mailchimp = require('lib/mailchimp'),
 	Newsletters = require('models/newsletters')
 
 var router = new express.Router()
 
-router.route('/list').get(function(req, res){
-	mailchimp.campaigns.list({}, function (campaigns) {
-		Newsletters.find({}, function (err, newsletters) {
-			if(err){
-				return res.status(500).send(err)
-			}
+router.route('/').get(function(req, res){
+	Newsletters.fetch(function (err, newsletters) {
+		if(err){return res.status(500).send(err)}
 
-			res.send({
-				newsletters:newsletters,
-				campaigns:campaigns
-			});
+		res.render('admin/campaigns/list', {
+			newsletters : newsletters,
 		})
-	},function (err) {
-		console.log(err)
-		res.send('Error')
 	})
 })
 
-router.route('/show/:cid').get(function(req, res){
+router.route('/:cid').get(function(req, res){
 	if(!req.params.cid){
 		return res.status(404).send('Need a cid')
 	}
 
-	mailchimp.campaigns.templateContent({cid:req.params.cid}, function (data) {
-		res.send(data)
-	},function (err) {
-		console.log(err)
-		res.status(500).send(err)
+	Newsletters.findOne({cid:req.params.cid}, function (err, newsletter) {
+		if(err){return res.status(500).send(err)}
+		if(!newsletter){return res.status(404).send('not found')}
+
+		console.log(req.flash('message'));
+		res.render('admin/campaigns/single', {
+			newsletter : newsletter,
+		})
+	})
+}).post(function(req, res){
+	if(!req.params.cid){
+		return res.status(404).send('Need a cid')
+	}
+
+	Newsletters.findOne({cid:req.params.cid}, function (err, newsletter) {
+		if(req.body.action === 'publish'){
+			newsletter.status = 'publish';
+		}
+
+		if(req.body.action === 'unpublish'){
+			newsletter.status = 'draft';
+		}
+
+		newsletter.description = req.body.description;
+
+		newsletter.save(function (err) {
+			if(err){return res.status(500).send(err)}
+			req.flash('message', 'edited sucessfully');
+			res.redirect('/admin/campaigns/' + newsletter.cid );
+		})
 	})
 })
 
