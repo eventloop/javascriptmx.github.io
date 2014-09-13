@@ -84,6 +84,7 @@
 						<h4 class="subscription-error"></h4>
 						<input type="email" name="email" id="subscriber-email" placeholder="tu@email.com" class="form-control input-box">
 						<button type="submit" id="subscribe-button" class="btn btn-default standard-button">Suscríbete</button>
+						<p class="error" style="display:none">Email invalido</p>
 					</form>					
 				</div>				
 			</div>
@@ -154,18 +155,23 @@
 					<form class="contact-form" role="form" method="POST" action="/contacto">
 						<div class="col-md-6">
 							<input class="form-control input-box" id="name" type="text" name="name" placeholder="Nombre">
+							<p class="error">Por favor agrega tu nombre.</p>
 						</div>
 						<div class="col-md-6">
-							<input class="form-control input-box" id="email" type="email" name="email" placeholder="Email">
+							<input class="form-control input-box" id="email" name="email" placeholder="Email">
+							<p class="error">Por favor agrega tu email.</p>
+							<p class="invalid-email" style="display:none">Por favor un email valido.</p>
 						</div>
 						<div class="col-md-12">
 							<input class="form-control input-box" id="subject" type="text" name="subject" placeholder="Título">
+							<p class="error">Por favor agrega tu título a tu mensaje.</p>
 						</div>
 						<div class="col-md-12">
 							<textarea class="form-control textarea-box" id="message" name="message" rows="8" placeholder="Mensaje"></textarea>
+							<p class="error">Agrega el mensaje que quieres mandar.</p>
 						</div>
 						<div class="col-md-12">
-							<button class="btn btn-primary standard-button2 ladda-button full-width" type="submit" id="submit" name="submit" data-style="expand-left">Enviar mensaje</button>
+							<button class="btn btn-primary standard-button2 ladda-button full-width disable" type="submit" id="submit" name="submit" data-style="expand-left">Enviar mensaje</button>
 						</div>
 					</form>
 				</div>
@@ -185,17 +191,6 @@
 <script src="/bower/bootstrapValidator/dist/js/bootstrapValidator.min.js"></script>
 <script src="/bower/ajaxchimp/jquery.ajaxchimp.min.js"></script>
 <script src="/bower/ajaxchimp/jquery.ajaxchimp.langs.min.js"></script>
-<script src="/js/smoothscroll.js"></script>
-<script src="/js/jquery.scrollTo.min.js"></script>
-<script src="/js/jquery.localScroll.min.js"></script>
-<script src="/js/owl.carousel.min.js"></script>
-<script src="/js/nivo-lightbox.min.js"></script>
-<script src="/js/simple-expand.min.js"></script>
-<script src="/js/wow.min.js"></script>
-<script src="/js/jquery.stellar.min.js"></script>
-<script src="/js/retina-1.1.0.min.js"></script>
-<script src="/js/jquery.nav.js"></script>
-<script src="/js/matchMedia.js"></script>
 <script src="/js/custom.js"></script>
 <script type="text/javascript">
 $(window).load(function(){

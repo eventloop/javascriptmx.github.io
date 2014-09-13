@@ -7,8 +7,9 @@ $('.mailchimp').ajaxChimp({
 	callback: function mailchimpCallback(resp) {
 		if (resp.result === 'success') {
 			$('.subscription-success')
-			.html('<i class="icon_check_alt2"></i><br/>' + resp.msg).fadeIn(1000);
+			.html('<i class="icon_check_alt2"></i> Checa tu correo y confirma la subscripción').fadeIn(1000);
 			$('.subscription-error').fadeOut(500);
+			$('.subscription-form input, .subscription-form button').hide()
 
 			ga('send', 'event', 'mailchimp', 'subscription', 'main form', 1);
 		} else if(resp.result === 'error') {
@@ -20,52 +21,103 @@ $('.mailchimp').ajaxChimp({
 	url: "//javascriptmx.us2.list-manage.com/subscribe/post?u=d7fe6986f079260108045fa95&amp;id=7e070c02cd"
 });
 
-
-/* =================================
-===  STICKY NAV                 ====
-=================================== */
 $('document').ready(function() {
-	$('.contact-form').bootstrapValidator({
-		message: 'This value is not valid',
-		fields: {
-			name :{
-				validators : {
-					notEmpty : {
-						message: 'Agrega tu nombre'
-					}
-				}
-			},
-			email: {
-				validators: {
-					notEmpty: {
-						message: 'Agrega tu email'
-					},
-					emailAddress: {
-						message: 'Ingresa un email valido'
-					}
-				}
-			},
-			subject :{
-				validators : {
-					notEmpty : {
-						message: 'Agrega un título a tu mensaje'
-					}
-				}
-			},
-			message :{
-				validators : {
-					notEmpty : {
-						message: 'Agrega tu mensaje'
-					}
-				}
-			}
+	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	$('#subscribe-button').on('click', function(e){
+		var $this = $(this);
+
+		if(!re.test($('#subscriber-email').val())){
+			e.preventDefault();
+
+			$this.parent().find('.error').show();
+		}else{
+			$this.parent().find('.error').hide();
+		}
+	});
+
+	$('#name').blur(function () {
+		if(!$('#name').val()){
+			$('#name').parent().find('.error').show();
+		}else{
+			$('#name').parent().find('.error').hide();
+		}
+	});
+
+	$('#email').blur(function () {
+		if(!$('#email').val()){
+			$('#email').parent().find('.error').show();
+			$('#email').parent().find('.invalid-email').hide();
+		}else if(!re.test($('#email').val())){
+			$('#email').parent().find('.invalid-email').show();
+			$('#email').parent().find('.error').hide();
+		}else{
+			$('#email').parent().find('.invalid-email').hide();
+			$('#email').parent().find('.error').hide();
+		}
+	});
+
+	$('#subject').blur(function () {
+		if(!$('#subject').val()){
+			$('#subject').parent().find('.error').show();
+		}else{
+			$('#subject').parent().find('.error').hide();
+		}
+	});
+
+	$('#message').blur(function () {
+		if(!$('#message').val()){
+			$('#message').parent().find('.error').show();
+		}else{
+			$('#message').parent().find('.error').hide();
+		}
+	});
+
+	$('.contact-form').on('submit', function (e) {
+		var error;
+
+		if(!$('#name').val()){
+			$('#name').parent().find('.error').show();
+			error = true;
+		}else{
+			$('#name').parent().find('.error').hide();
+		}
+
+		if(!$('#email').val()){
+			$('#email').parent().find('.error').show();
+			$('#email').parent().find('.invalid-email').hide();
+			error = true;
+		}else if(!re.test($('#email').val())){
+			$('#email').parent().find('.invalid-email').show();
+			$('#email').parent().find('.error').hide();
+			error = true;
+		}else{
+			$('#email').parent().find('.invalid-email').hide();
+			$('#email').parent().find('.error').hide();
+		}
+
+		if(!$('#subject').val()){
+			$('#subject').parent().find('.error').show();
+			error = true;
+		}else{
+			$('#subject').parent().find('.error').hide();
+		}
+
+		if(!$('#message').val()){
+			$('#message').parent().find('.error').show();
+			error = true;
+		}else{
+			$('#message').parent().find('.error').hide();
+		}
+
+		if(error){
+			e.preventDefault();
 		}
 	});
 });
 
 
 /* COLLAPSE NAVIGATION ON MOBILE AFTER CLICKING ON LINK - ADDED ON V1.5*/
-
 if (matchMedia('(max-width: 480px)').matches) {
 	$('.main-navigation a').on('click', function () {
 		$(".navbar-toggle").click();
@@ -74,7 +126,6 @@ if (matchMedia('(max-width: 480px)').matches) {
 
 
 /* NAVIGATION VISIBLE ON SCROLL */
-
 var mainNav
 $(document).ready(function () {
 	mainNav();
@@ -100,150 +151,4 @@ if (matchMedia('(min-width: 768px) and (max-width: 991px)').matches) {
 
 		else $('.sticky-navigation').stop().animate({"top": '-120'});
 	}
-}
-
-
-
-/* =================================
-===  DOWNLOAD BUTTON CLICK SCROLL ==
-=================================== */
-jQuery(function( $ ){
-			$('#download-button').localScroll({
-				duration:1000
-			});
-		});
-
-
-/* =================================
-===  FULL SCREEN HEADER         ====
-=================================== */
-function alturaMaxima() {
-  var altura = $(window).height();
-  $(".full-screen").css('min-height',altura); 
-  
-}
-
-$(document).ready(function() {
-  alturaMaxima();
-  $(window).bind('resize', alturaMaxima);
-});
-
-
-/* =================================
-===  SMOOTH SCROLL             ====
-=================================== */
-var scrollAnimationTime = 1200,
-	scrollAnimation = 'easeInOutExpo';
-$('a.scrollto').bind('click.smoothscroll', function (event) {
-	event.preventDefault();
-	var target = this.hash;
-	$('html, body').stop().animate({
-		'scrollTop': $(target).offset().top
-	}, scrollAnimationTime, scrollAnimation, function () {
-		window.location.hash = target;
-	});
-});
-
-
-/* =================================
-===  WOW ANIMATION             ====
-=================================== */
-window.wow = new WOW(
-  {
-	mobile: false
-  });
-window.wow.init();
-
-
-/* =================================
-===  OWL CROUSEL               ====
-=================================== */
-$(document).ready(function () {
-
-	$("#feedbacks").owlCarousel({
-
-		navigation: false, // Show next and prev buttons
-		slideSpeed: 800,
-		paginationSpeed: 400,
-		autoPlay: 5000,
-		singleItem: true
-	});
-
-	var owl = $("#screenshots");
-
-	owl.owlCarousel({
-		items: 4, //10 items above 1000px browser width
-		itemsDesktop: [1000, 4], //5 items between 1000px and 901px
-		itemsDesktopSmall: [900, 2], // betweem 900px and 601px
-		itemsTablet: [600, 1], //2 items between 600 and 0
-		itemsMobile: false // itemsMobile disabled - inherit from itemsTablet option
-	});
-
-
-});
-
-
-/* =================================
-===  Nivo Lightbox              ====
-=================================== */
-$(document).ready(function () {
-
-	$('#screenshots a').nivoLightbox({
-		effect: 'fadeScale',
-	});
-
-});
-
-
-/* =================================
-===  SUBSCRIPTION FORM          ====
-=================================== */
-$("#subscribe").submit(function (e) {
-    e.preventDefault();
-    var email = $("#subscriber-email").val();
-    var dataString = 'email=' + email;
-
-    function isValidEmail(emailAddress) {
-        var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-        return pattern.test(emailAddress);
-    }
-
-    if (isValidEmail(email)) {
-        $.ajax({
-            type: "POST",
-            url: "subscribe/subscribe.php",
-            data: dataString,
-            success: function () {
-                $('.subscription-success').fadeIn(1000);
-                $('.subscription-error').fadeOut(500);
-                $('.hide-after').fadeOut(500);
-            }
-        });
-    } else {
-        $('.subscription-error').fadeIn(1000);
-    }
-
-    return false;
-});
-
-
-/* =================================
-===  STELLAR                    ====
-=================================== */
-$(window).stellar({ 
-horizontalScrolling: false 
-});
-
-
-/* =================================
-===  Bootstrap Internet Explorer 10 in Windows 8 and Windows Phone 8 FIX
-=================================== */
-if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-  var msViewportStyle = document.createElement('style')
-  msViewportStyle.appendChild(
-	document.createTextNode(
-	  '@-ms-viewport{width:auto!important}'
-	)
-  )
-  document.querySelector('head').appendChild(msViewportStyle)
 }

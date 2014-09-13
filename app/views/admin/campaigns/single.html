@@ -1,0 +1,45 @@
+// http://vuejs.org/examples/
+// http://jsfiddle.net/yyx990803/u6UbY/light/
+// http://vuejs.org/js/vue.min.js
+// http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.1/marked.min.js
+{% extends '../layout.html' %}
+
+{% block title %}{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+	<h1 class="page-header">{{ newsletter.title }}</h1>
+
+	<div class="info">
+		<form method="POST" action="/admin/campaigns/cfcf7c14c4">
+			<div class="row">
+				<div class="col-xs-3">Link</div>
+				<div class="col-xs-9">{{newsletter.url}}</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3">sendAt</div>
+				<div class="col-xs-9">{{newsletter.sendAt|date('Y-m-d')}}</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3">status</div>
+				<div class="col-xs-9">{{newsletter.status}}</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3">description</div>
+				<div class="col-xs-9"><textarea name="description">{{newsletter.description}}</textarea></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<button name="action" value="save" class="btn btn-primary">Save</button>
+					{% if newsletter.status != 'publish' %}
+					<button name="action" value="publish" class="btn btn-success">Publish</button>
+					{% else %}
+					<button name="action" value="unpublish" class="btn btn-success">Unpublish</button>
+					{% endif %}
+				</div>				
+			</div>			
+		</form>
+	</div>
+{% endblock %}
