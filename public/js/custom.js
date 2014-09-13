@@ -116,6 +116,12 @@ $('document').ready(function() {
 	});
 });
 
+var headerSizer = function () {
+	$('header, .color-overlay').css('min-height', window.innerHeight);
+}
+
+$(window).on('load', headerSizer);
+$(window).on('resize', headerSizer);
 
 /* COLLAPSE NAVIGATION ON MOBILE AFTER CLICKING ON LINK - ADDED ON V1.5*/
 if (matchMedia('(max-width: 480px)').matches) {
