@@ -1,6 +1,8 @@
 var express = require('express'),
-	BadRequestError = require('errors').BadRequestError,
-	Newsletters = require('models/newsletters')
+	Newsletters = require('models/newsletters'),
+	marked = require('marked')
+
+marked.setOptions({});
 
 var router = new express.Router()
 
@@ -42,7 +44,8 @@ router.route('/:cid').get(function(req, res){
 			newsletter.status = 'draft';
 		}
 
-		newsletter.description = req.body.description;
+		newsletter.description = req.body.description
+		newsletter.content = marked(req.body.description)
 
 		newsletter.save(function (err) {
 			if(err){return res.status(500).send(err)}

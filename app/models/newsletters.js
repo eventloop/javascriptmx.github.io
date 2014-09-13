@@ -11,7 +11,8 @@ var schema = new mongoose.Schema({
 	title  : {type: String, required: true},
 	sendAt : {type: Date, required: true},
 	data   : mongoose.Schema.Types.Mixed,
-	description: {type: String}
+	description: {type: String},
+	content: {type: String}
 })
 schema.plugin(findOrCreate)
 

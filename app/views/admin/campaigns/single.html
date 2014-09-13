@@ -13,7 +13,7 @@
 	<h1 class="page-header">{{ newsletter.title }}</h1>
 
 	<div class="info">
-		<form method="POST" action="/admin/campaigns/cfcf7c14c4">
+		<form method="POST" action="/admin/campaigns/{{newsletter.cid}}">
 			<div class="row">
 				<div class="col-xs-3">Link</div>
 				<div class="col-xs-9">{{newsletter.url}}</div>
@@ -28,7 +28,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-3">description</div>
-				<div class="col-xs-9"><textarea name="description">{{newsletter.description}}</textarea></div>
+				<div class="col-xs-9"><textarea name="description" style="width:400px; height:400px">{{newsletter.description}}</textarea></div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
