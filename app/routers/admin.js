@@ -1,13 +1,13 @@
 var express = require('express'),
 	// BadRequestError = require('errors').BadRequestError,
-	canAccessAdmin = require('app/middleware/canAccessAdmin'),
-	mailchimp = require('app/lib/mailchimp')
+	canAccessAdmin = require('middleware/canAccessAdmin'),
+	mailchimp = require('lib/mailchimp')
 
 var router = new express.Router()
 
 router.use(canAccessAdmin)
 
-var newslettersRouter = require('app/routers/campaigns')
+var newslettersRouter = require('routers/campaigns')
 router.use('/campaigns', newslettersRouter)
 
 router.route('/').get(function(req, res){
