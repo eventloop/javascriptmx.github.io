@@ -13,9 +13,9 @@ var env = process.env.NODE_ENV || 'development'
 
 var app = express()
 if (env === 'development') {
-	app.use(logger('dev'))
+	app.use(logger(':status :req[x-real-ip] :method :response-time ms :url'));
 } else if (env === 'production') {
-	app.use(logger())
+	app.use(logger(':status :req[x-real-ip] :method :response-time ms :url'));
 }
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
