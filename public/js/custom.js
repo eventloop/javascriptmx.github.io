@@ -132,14 +132,16 @@ if (matchMedia('(max-width: 480px)').matches) {
 
 
 /* NAVIGATION VISIBLE ON SCROLL */
-var mainNav
-$(document).ready(function () {
-	mainNav();
-});
+if(window.home){
+	var mainNav
+	$(document).ready(function () {
+		mainNav();
+	});
 
-$(window).scroll(function () {
-	mainNav();
-});
+	$(window).scroll(function () {
+		mainNav();
+	});
+}
 
 if (matchMedia('(min-width: 992px), (max-width: 767px)').matches) {
 	mainNav = function mainNav() {

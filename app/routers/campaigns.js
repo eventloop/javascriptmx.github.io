@@ -44,6 +44,7 @@ router.route('/:cid').get(function(req, res){
 			newsletter.status = 'draft';
 		}
 
+		newsletter.title = req.body.title
 		newsletter.description = req.body.description
 		newsletter.content = marked(req.body.description)
 
