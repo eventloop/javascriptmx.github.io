@@ -12,11 +12,6 @@ var RedisStore = require('connect-redis')(session)
 var env = process.env.NODE_ENV || 'development'
 
 var app = express()
-if (env === 'development') {
-	app.use(logger('dev'));
-} else if (env === 'production') {
-	app.use(logger(':status :req[x-real-ip] :method :response-time ms :url'));
-}
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/app/views');
@@ -39,6 +34,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.static(__dirname + '/public'))
 app.use('/bower', express.static(__dirname + '/bower_components'))
+if (env === 'development') {
+	app.use(logger('dev'));
+} else if (env === 'production') {
+	app.use(logger(':status :req[x-real-ip] :method :response-time ms :url'));
+}
 
 app.use(require('middleware/flash')())
 app.use(function templateEnvironment(req, res, next) {
