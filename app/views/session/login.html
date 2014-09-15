@@ -1,19 +1,21 @@
 {% extends '../layout.html' %}
 {% block content %}
-<div class="pure-u-1">
-	<h2>Iniciar sesión</h2>
-	<form method="POST" role="form" class="pure-form pure-form-aligned">
-		<div class="pure-control-group">
-			<label for="email-control">Correo electrónico</label>
-			<input type="email" name="username" placeholder="email@domain.com" id="email-control" autofocus/>
-		</div>
-		<div class="pure-control-group">
-			<label for="password-control">Contraseña</label>
-			<input type="password" name="password"  id="password-control">
-		</div>
-		<div class="pure-controls">
-			<button type="submit" class="pure-button pure-button-primary">Acceder</button>
-		</div>
-	</form>
+<div class="row" style="min-height: 30em">
+	<div class="col-md-12">
+		<h2>Iniciar sesión</h2>
+		<form class="form-inline" role="form" method="POST">
+			<div class="form-group">
+				<div class="input-group">
+					<div class="input-group-addon">@</div>
+					<input class="form-control" type="email" placeholder="email@domain.com" name="username" autofocus>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="exampleInputPassword2">Password</label>
+				<input type="password" class="form-control" placeholder="Password" name="password">
+			</div>
+			<button type="submit" class="btn btn-default">Acceder</button>
+		</form>
+	</div>
 </div>
 {% endblock %}
