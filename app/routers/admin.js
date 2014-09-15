@@ -10,7 +10,7 @@ var newslettersRouter = require('routers/campaigns')
 router.use('/campaigns', newslettersRouter)
 
 router.route('/').get(function(req, res, next){
-	mailchimp.getListData.then(function (data) {
+	mailchimp.getListData().then(function (data) {
 		res.render('admin/main',{
 			subscribers : data.total
 		});
