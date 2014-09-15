@@ -10,12 +10,12 @@ router.use(canAccessAdmin)
 var newslettersRouter = require('routers/campaigns')
 router.use('/campaigns', newslettersRouter)
 
-router.route('/').get(function(req, res){
-	mailchimp.getListData(function (err, data) {
+router.route('/').get(function(req, res, next){
+	mailchimp.getListData.then(function (data) {
 		res.render('admin/main',{
 			subscribers : data.total
 		});
-	})
+	}).catch(next)
 })
 
 module.exports = router

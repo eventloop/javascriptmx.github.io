@@ -6,14 +6,12 @@ marked.setOptions({});
 
 var router = new express.Router()
 
-router.route('/').get(function(req, res){
-	Newsletters.fetch(function (err, newsletters) {
-		if(err){return res.status(500).send(err)}
-
+router.route('/').get(function(req, res, next){
+	Newsletters.fetch().then(function (newsletters) {
 		res.render('admin/campaigns/list', {
 			newsletters : newsletters,
 		})
-	})
+	}).catch(next)
 })
 
 router.route('/:cid').get(function(req, res){
