@@ -1,17 +1,17 @@
 var express = require('express'),
-	BadRequestError = require('errors').BadRequestError,
-	Newsletters = require('models/newsletters')
+	Newsletters = require('models/newsletters'),
+	marked = require('marked')
+
+marked.setOptions({});
 
 var router = new express.Router()
 
-router.route('/').get(function(req, res){
-	Newsletters.fetch(function (err, newsletters) {
-		if(err){return res.status(500).send(err)}
-
+router.route('/').get(function(req, res, next){
+	Newsletters.fetch().then(function (newsletters) {
 		res.render('admin/campaigns/list', {
 			newsletters : newsletters,
 		})
-	})
+	}).catch(next)
 })
 
 router.route('/:cid').get(function(req, res){
@@ -42,7 +42,9 @@ router.route('/:cid').get(function(req, res){
 			newsletter.status = 'draft';
 		}
 
-		newsletter.description = req.body.description;
+		newsletter.title = req.body.title
+		newsletter.description = req.body.description
+		newsletter.content = marked(req.body.description)
 
 		newsletter.save(function (err) {
 			if(err){return res.status(500).send(err)}

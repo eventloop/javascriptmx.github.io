@@ -1,8 +1,7 @@
 var mongoose = require('lib/mongoose')
 var findOrCreate = require('mongoose-findorcreate')
-var async = require('async')
 var mailchimp = require('lib/mailchimp')
-var _ = require('underscore')
+var Bluebird = require('bluebird')
 
 var schema = new mongoose.Schema({
 	status : {type: String, default: 'draft'},
@@ -11,38 +10,38 @@ var schema = new mongoose.Schema({
 	title  : {type: String, required: true},
 	sendAt : {type: Date, required: true},
 	data   : mongoose.Schema.Types.Mixed,
-	description: {type: String}
+	description: {type: String},
+	content: {type: String}
 })
 schema.plugin(findOrCreate)
 
-var Newsletter = mongoose.model('Newsletter', schema)
+var Newsletter = Bluebird.promisifyAll(mongoose.model('Newsletter', schema))
 
+/*jshint camelcase:false */
 Newsletter.fetch = function (cb) {
-	mailchimp.campaigns.list({}, function (campaigns) {
-		async.series(campaigns.data.filter(function (campaign) {
+	return mailchimp.getCampaigns().then(function (campaigns) {
+		var promises = campaigns.data.filter(function (campaign) {
 			return campaign.status === 'sent' && campaign.send_time;
-		}).map(function(campaign){
-			return function(done){
-				Newsletter.findOrCreate({cid: campaign.id}, {
-					cid : campaign.id,
-					url : campaign.archive_url,
-					title : campaign.title,
-					sendAt : new Date(campaign.send_time),
-					data: campaign
-				}, function(err, newsletter){
-					done(null, newsletter);
-				})
-			}
-		}), function (err, results) {
-			if(results){
-				results = _.sortBy(results, function(newsletter){ return newsletter.sendAt; }).reverse();
-			}
-
-			cb(err, results)
-		});
-	},function (err) {
-		cb(err)
-	})
+		}).map(function(campaign) {
+			return Newsletter.findOrCreateAsync({cid: campaign.id}, {
+				cid : campaign.id,
+				url : campaign.archive_url,
+				title : campaign.title,
+				sendAt : new Date(campaign.send_time),
+				data: campaign
+			}).spread(function(newsletter) {
+				/*
+				* el callback del plugin findOrCreate regresa un argumento más que es
+				* true si se creo el objeto en la base de datos
+				* false si ya existia.
+				* ignorandolo con esta funcion para no recibir un array como resultado
+				*/
+				return newsletter
+			})
+		})
+		return Bluebird.all(promises)
+	}).nodeify(cb)
 }
+/*jshint camelcase:true */
 
 module.exports = Newsletter

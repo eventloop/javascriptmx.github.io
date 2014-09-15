@@ -1,6 +1,6 @@
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
-var NotFoundError = require('errors').NotFoundError
+var createError = require('http-errors')
 var User = require('./db').User
 
 passport.serializeUser(function(user, done) {
@@ -14,15 +14,14 @@ passport.deserializeUser(function(id, done) {
 passport.use(new LocalStrategy(function localLogin(email, password, done) {
 	User.findOneAsync({email: email})
 	.then(function(user) {
-		console.log(user)
 		if (!user) {
-			throw new NotFoundError()
+			throw new createError.NotFound()
 		}
 		return user.comparePassword(password).then(function(isMatch){
-			if (!isMatch) throw new NotFoundError()
+			if (!isMatch) throw new createError.NotFound()
 			done(null, user)
 		})
-	}).catch(NotFoundError, function() {
+	}).catch(createError.NotFound, function() {
 		done(null, false, {message: 'Usuario o contraseña incorrecto'})
 	}).catch(done)
 }))

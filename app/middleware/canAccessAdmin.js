@@ -1,26 +1,14 @@
-var User = require('lib/db').User
-
 module.exports = function(req, res, next) {
-	if( !(req.session && req.session.passport && req.session.passport.user) ){
-		return res.status(403).send('Forbidden')
+	if (!req.user) {
+		req.session.redirectTo = req.originalUrl
+		return res.redirect('/login')
 	}
 
-	User.findById(req.session.passport.user, function (err, user) {
-		if(err){
-			return res.status(500).send(err)
-		}
+	if (!req.user.isAdmin) {
+		return res.sendStatus(403)
+	}
 
-		if(!user){
-			return res.status(403).send('Forbidden')
-		}
-		
-		if(!user.isAdmin){
-			return res.status(403).send('Forbidden')
-		}
+	res.locals.user = req.user;
 
-		res.locals.user = user;
-		res.user = user;
-
-		next();
-	})
+	next();
 }

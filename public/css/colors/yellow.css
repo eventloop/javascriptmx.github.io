@@ -67,6 +67,10 @@ DEEP COLOR CODE: #bb9e0a
     background: #e5c41a;
 }
 
+.background-yellow {
+    background: rgba(229, 196, 26, 0.95);
+}
+
 footer {
     background: rgba(229, 196, 26, 0.95);
 }
