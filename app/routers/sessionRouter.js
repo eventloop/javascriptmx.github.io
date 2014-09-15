@@ -1,7 +1,7 @@
 var express = require('express')
 var createError = require('http-errors')
 var passport = require('passport')
-var _ = require('underscore')
+var _ = require('lodash')
 var ValidationError = require('mongoose/lib/error/validation')
 
 var User = require('lib/db').User

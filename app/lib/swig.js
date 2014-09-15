@@ -1,5 +1,5 @@
 var swig = require('swig')
-var _ = require('underscore')
+var _ = require('lodash')
 
 swig.setDefaults({
 	root: '../views',
