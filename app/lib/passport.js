@@ -14,7 +14,6 @@ passport.deserializeUser(function(id, done) {
 passport.use(new LocalStrategy(function localLogin(email, password, done) {
 	User.findOneAsync({email: email})
 	.then(function(user) {
-		console.log(user)
 		if (!user) {
 			throw new createError.NotFound()
 		}

@@ -28,7 +28,7 @@ router.route('/login')
 		req.logIn(user, function(err) {
 			if (err) return next(err)
 
-			return res.redirect(defaultRedirection)
+			return res.redirect(req.session.redirectTo || defaultRedirection)
 		})
 	})(req, res, next)
 })
