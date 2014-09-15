@@ -29,15 +29,7 @@ Newsletter.fetch = function (cb) {
 				title : campaign.title,
 				sendAt : new Date(campaign.send_time),
 				data: campaign
-			}).spread(function(newsletter) {
-				/*
-				* el callback del plugin findOrCreate regresa un argumento más que es
-				* true si se creo el objeto en la base de datos
-				* false si ya existia.
-				* ignorandolo con esta funcion para no recibir un array como resultado
-				*/
-				return newsletter
-			})
+			}).get(0)
 		})
 		return Bluebird.all(promises)
 	}).nodeify(cb)
