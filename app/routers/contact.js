@@ -1,12 +1,13 @@
 var express = require('express'),
-	BadRequestError = require('errors').BadRequestError,
+	createError = require('http-errors'),
 	mailer = require('lib/mailer')
 
 var router = new express.Router();
 
-router.route('/').post(function(req, res){
-	if( !req.body.name || !req.body.email || !req.body.subject || !req.body.message ){
-		return next(new BadRequestError('Invalid data'));
+router.route('/').post(function(req, res, next){
+	if( !req.body.name || !req.body.email ||
+		!req.body.subject || !req.body.message ){
+		return next(new createError.BadRequest('Invalid data'));
 	}
 
 	mailer.sendContactMessage(req.body, function (err) {

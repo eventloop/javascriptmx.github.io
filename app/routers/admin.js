@@ -1,5 +1,4 @@
 var express = require('express'),
-	// BadRequestError = require('errors').BadRequestError,
 	canAccessAdmin = require('middleware/canAccessAdmin'),
 	mailchimp = require('lib/mailchimp')
 
