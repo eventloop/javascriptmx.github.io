@@ -61,6 +61,7 @@
 				<ul class="nav navbar-nav navbar-right main-navigation">
 					<li><a href="#home">Home</a></li>
 					<li><a href="#services">Eventos</a></li>
+					<li><a href="#newsletters">Newsletters</a></li>
 					<li><a href="#contact">Contáctanos</a></li>
 				</ul>
 			</div>
@@ -140,6 +141,22 @@
 				</div>
 			</a>
 		</div>		
+	</div>
+</section>
+<section class="app-brief deep-dark-bg" id="newsletters">
+	<div class="container">	
+		<div class="row">
+			<div class="col-md-7 left-align wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s">
+				<h4 class="white-text">Último newsletter</h4>
+				<h2 class="white-text">{{newsletter.title}}</h2>
+				<div class="colored-line-left">
+				</div>
+				<div class="white-text">{{ newsletter.content|safe }}</div>
+			</div>
+			<div class="col-md-offset-7 col-md-5 relative" data-wow-offset="10" data-wow-duration="1.5s">
+				<a class="btn btn-primary" href="/newsletters" type="submit" id="view-newsletter" name="submit" data-style="expand-left">Ver anteriores</a>
+			</div>
+		</div>
 	</div>
 </section>
 <footer>

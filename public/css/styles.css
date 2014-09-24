@@ -203,6 +203,35 @@ h5 {
     font-size: 20px;
 }
 
+#view-newsletter{
+    font-size: 18px;
+    font-weight: 400 !important;
+    border-radius: 4px !important;
+    text-shadow: 0 !important;
+    color: #ffffff;
+    min-width: 150px;
+    padding: 16px 25px 16px 25px;
+    margin: 5px;
+    -webkit-transition: all ease 0.25s;
+            transition: all ease 0.25s;
+    width: 97%;
+    border: 1px solid white;            
+    background: transparent;
+
+    margin-top: -160px;
+}
+
+#view-newsletter:hover{
+    background: rgba(229, 196, 26, 0.95);
+}
+
+@media (max-width: 1000px) {
+    #view-newsletter{
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+}
+
 
 /*---------------------------------------
    TEXTS               
@@ -294,6 +323,13 @@ header .full-screen {
 }
 
 /* TOP BAR WITH NAVIGATION */
+
+.navbar-inverse .navbar-nav>li>a:hover{
+    color: inherit;
+}
+.navbar-inverse .navbar-nav>li>a:focus{
+    color: #777;
+}
 
 .sticky-navigation {
   min-height: 60px;

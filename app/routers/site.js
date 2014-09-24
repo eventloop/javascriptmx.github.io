@@ -4,7 +4,15 @@ var express = require('express'),
 
 var router = new express.Router();
 
-router.get('/', function(req, res) {res.render('index')})
+router.get('/', function(req, res) {
+	Newsletters.findOne({status:'publish'}, {data:0}).sort('-sendAt').exec(function (err, newsletter) {
+		if(err){
+			return res.status(500).send(err);
+		}
+		
+		res.render('index', {newsletter:newsletter})
+	});
+});
 
 router.get('/newsletters', function(req, res) {
 	Newsletters.find({status:'publish'}, {data:0}).sort('-sendAt').exec(function (err, newsletters) {
