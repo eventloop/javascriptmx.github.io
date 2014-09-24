@@ -1,5 +1,4 @@
 /* jshint unused:false */
-var accepts = require('accepts')
 
 module.exports = function() {
 	return function errorHandler(err, req, res, next) {
@@ -14,19 +13,19 @@ module.exports = function() {
 			console.error(err)
 		}
 
-		var accept = accepts(req)
-		var type = accept.types('html', 'json', 'text')
 		// Security header for content sniffing
 		res.setHeader('X-Content-Type-Options', 'nosniff')
 		res.status(status);
-		console.log('rendering error', type)
 
-		if (type === 'html') {
-			return res.render('error', data);
-		} else if (type === 'json'){
-			return res.json(data)
+		if (req.is('json')) {
+			if (err.noData) {
+				res.end()
+			} else {
+				res.json({error: data})
+			}
+		} else if (req.is('html')) {
+			res.render('error', data)
 		} else {
-			res.setHeader('content-type', 'text/plain')
 			res.send(err.message)
 		}
 	}

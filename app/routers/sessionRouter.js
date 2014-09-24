@@ -1,5 +1,5 @@
 var express = require('express')
-var BadRequestError = require('errors').BadRequestError
+var createError = require('http-errors')
 var passport = require('passport')
 var _ = require('underscore')
 var ValidationError = require('mongoose/lib/error/validation')
@@ -28,7 +28,7 @@ router.route('/login')
 		req.logIn(user, function(err) {
 			if (err) return next(err)
 
-			return res.redirect(defaultRedirection)
+			return res.redirect(req.session.redirectTo || defaultRedirection)
 		})
 	})(req, res, next)
 })
@@ -43,7 +43,7 @@ router.route('/signup')
 	res.render('session/signup')
 }).post(function(req, res, next) {
 	if (!req.body.email || !req.body.password) {
-		return next(new BadRequestError('Expected email'))
+		return next(new createError.BadRequest('Expected email'))
 	}
 
 	var userAttributes = _.pick(req.body, 'email', 'password')
@@ -54,13 +54,13 @@ router.route('/signup')
 		} else {
 			req.logIn(user, function(err) {
 				if (err) return next(err)
-				
+
 				return res.redirect(defaultRedirection)
 			})
 		}
 	}).catch(ValidationError, function(err) {
 		//TODO send better errors and stuff
-		throw new BadRequestError(err.toString())
+		throw new createError.BadRequest(err.toString())
 	})
 	.catch(next)
 })

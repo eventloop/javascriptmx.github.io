@@ -13,7 +13,7 @@ var env = process.env.NODE_ENV || 'development'
 
 var app = express()
 if (env === 'development') {
-	app.use(logger(':status :req[x-real-ip] :method :response-time ms :url'));
+	app.use(logger('dev'));
 } else if (env === 'production') {
 	app.use(logger(':status :req[x-real-ip] :method :response-time ms :url'));
 }
@@ -55,7 +55,12 @@ app.use('/admin', require('routers/admin'))
 app.use('/contacto', require('routers/contact'))
 app.use('/utils/campaigns', require('routers/campaigns'))
 
-app.use(require('middleware/error-handler')())
+if (env === 'production') {
+	app.use(require('middleware/error-handler')())
+} else {
+	app.use(require('errorhandler')())
+}
+
 
 var server = app.listen(process.env.PORT || 3000, function () {
 	if (env !== 'test') {

@@ -8,13 +8,17 @@
 {% block content %}
 	<h1 class="page-header">Campaigns</h1>
 
-	<div class="list">
-	{% for newsletter in newsletters %}
-		<a href="/admin/campaigns/{{newsletter.cid}}">
-			<div class="list-item">
-				<p>{{newsletter.title}}({{newsletter.status}})</p>
-			</div>
-		</a>
-	{% endfor %}
+	<div class="row">
+		<div class="col-md-4">
+			<ul class="nav nav-pills nav-stacked">
+			{% for newsletter in newsletters %}
+				<li class="list-item">
+					<a href="/admin/campaigns/{{newsletter.cid}}">
+						{{newsletter.title}} <small>({{newsletter.status}})</small>
+					</a>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
 	</div>
 {% endblock %}
