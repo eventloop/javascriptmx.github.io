@@ -1,4 +1,5 @@
 var express = require('express')
+var Paperpress = require('paperpress').Paperpress;
 var db = require('lib/db')
 db.loadModels('user','newsletters')
 
@@ -47,6 +48,16 @@ app.use(function templateEnvironment(req, res, next) {
 	res.locals.user = req.user
 	next()
 })
+
+var blog = new Paperpress({
+  directory : 'static',
+  themePath : '/static/themes/base',
+  basePath  : '/blog',
+  articlesPerPage : 20,
+  pagesPath : ''
+});
+
+blog.attach(app);
 
 app.use(require('routers/sessionRouter'))
 app.use(require('routers/site'))

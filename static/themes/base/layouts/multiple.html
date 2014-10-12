@@ -1,0 +1,15 @@
+{% extends './layout.html' %}
+
+{% block content %}
+  <h1 class="text-muted">Contenidos de la comunidad</h1>
+
+  <div class="posts">
+  {% for article in articles %}
+    <div class="post">
+      <h4><a href="{{ article.uri }}">{{ article.title }}</a></h4>
+      <div class="description">{{ article.description }}</div>
+      <div class="read-more"><a href="{{ article.uri }}">Leer más</a></div>
+    </div>
+  {% endfor %}
+  </div>
+{% endblock %}

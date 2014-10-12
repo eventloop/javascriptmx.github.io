@@ -1,0 +1,12 @@
+{
+  "title": "JavascriptMX",
+  "description": "Comunidad de desarrolladores de Javascript de México",
+  "link": "http://javascriptmx.com/blog",
+  "image": "http://javascriptmx.com/images/js-logo.png",
+  "copyright": "Copyright © 2014 JavascriptMX. Todos los derechos reservados.",
+  "author": {
+    "name": "Jeduan Cornejo",
+    "email": "jeduan@gmail.com",
+    "link": "http://javascriptmx.com"
+  }
+}
