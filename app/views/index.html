@@ -1,112 +1,128 @@
 {% extends './layout.html' %}
 
 {% block js %}
-  <script type="text/javascript">window.home = true;</script>
-  <script type="text/javascript">
-  $(window).load(function(){
-    setTimeout(function(){$('.navbar').css('visibility', '')}, 1000);
-  });</script>
+	<script type="text/javascript">window.home = true;</script>
+	<script type="text/javascript">
+	$(window).load(function(){
+		setTimeout(function(){$('.navbar').css('visibility', '')}, 1000);
+	});</script>
 {% endblock %}
 
 {% block content %}
 <header class="header" data-stellar-background-ratio="0.5" id="home">
 <div class="color-overlay">
-  <div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation" style="visibility:hidden">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#kane-navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><img src="/images/js-logo.png" alt=""></a>
-      </div>
-      <div class="navbar-collapse collapse" id="kane-navigation">
-        <ul class="nav navbar-nav navbar-right main-navigation">
-          <li><a href="/">Home</a></li>
-          <li><a href="/#services">Eventos</a></li>
-          <li><a href="/blog">Artículos</a></li>
-          <li><a href="/#contact">Contáctanos</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="only-logo">
-      <div class="navbar">
-        <div class="navbar-header">
-          <img src="images/js-logo.png" alt="" width="200px">
-        </div>
-      </div>
-    </div>
-    <div class="row download">
-      <div class="col-md-12">
-        <div class="intro-section">
-          <h1 class="intro">Bienvenido a la comunidad de desarrolladores de Javascript de México.</h1>
-          <h5>Suscríbete a nuestro boletín y recibe las noticias más importantes cada semana</h5>
-          <form class="subscription-form mailchimp form-inline wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s" role="form">
-            <h4 class="subscription-success"></h4>
-            <h4 class="subscription-error"></h4>
-            <input type="email" name="email" id="subscriber-email" placeholder="tu@email.com" class="form-control input-box">
-            <button type="submit" id="subscribe-button" class="btn btn-default standard-button">Suscríbete</button>
-            <p class="error" style="display:none">Email inválido</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation" style="visibility:hidden">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#kane-navigation">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img src="images/js-logo.png" alt=""></a>
+			</div>
+			<div class="navbar-collapse collapse" id="kane-navigation">
+				<ul class="nav navbar-nav navbar-right main-navigation">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#services">Eventos</a></li>
+					<li><a href="/blog">Artículos</a></li>
+					<li><a href="#newsletters">Newsletters</a></li>
+					<li><a href="#contact">Contáctanos</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="only-logo">
+			<div class="navbar">
+				<div class="navbar-header">
+					<img src="images/js-logo.png" alt="" width="200px">
+				</div>
+			</div>
+		</div>
+		<div class="row download">
+			<div class="col-md-12">
+				<div class="intro-section">
+					<h1 class="intro">Bienvenido a la comunidad de desarrolladores de Javascript de México.</h1>
+					<h5>Subscríbete a nuestro boletín y recibe las noticias más importantes cada semana</h5>
+					<form class="subscription-form mailchimp form-inline wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s" role="form">
+						<h4 class="subscription-success"></h4>
+						<h4 class="subscription-error"></h4>
+						<input type="email" name="email" id="subscriber-email" placeholder="tu@email.com" class="form-control input-box">
+						<button type="submit" id="subscribe-button" class="btn btn-default standard-button">Suscríbete</button>
+						<p class="error" style="display:none">Email invalido</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 </header>
-
 <section class="services" id="services">
-  <div class="container">
-    <div class="section-header wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
-      <h2 class="dark-text">Eventos de la comunidad</h2>
-      <div class="colored-line">
-      </div>
-      <div class="section-description">
-        Asiste, aprende, programa, comparte y diviértete. Eventos para todos los niveles de experiencia.
-      </div>
-      <div class="colored-line">
-      </div>
-    </div>
-    <div class="row">
-      <a class="event-link" href="http://chelajs.com/" target="_blank">
-        <div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
-          <div class="service-icon">
-            <img src="/images/chela-js-logo.png" alt="" height="120px">
-          </div>
-          <h3>ChelaJs</h3>
-          <h6>Próximo evento: 05 de Noviembre</h6>
-          <p>
-            Un grupo de developers se reúnen a tomar javascript con el pretexto de hablar del mejor lenguaje hoy en día: cerveza.
-          </p>
-        </div>
-      </a>
-      <a class="event-link" href="http://nodebots.mx/" target="_blank">
-        <div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
-          <div class="service-icon">
-            <img src="images/nodebotsmx-logo.png" alt="" height="120px">
-          </div>
-          <h3>NodeBotsMx</h3>
-          <h6>Próximo evento: 27 de Septiembre</h6>
-          <p>Usa tus poderes de JavasScript para controlar también el mundo físico</p>
-        </div>
-      </a>
-      <a class="event-link" href="http://angularjsmexico.com/" target="_blank">
-        <div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
-          <div class="service-icon">
-            <img src="images/logo-angular-mx.png" alt="" height="120px">
-          </div>
-          <h3>AngularJS México</h3>
-          <h6>Próximo evento: 25 de Octubre</h6>
-          <p>
-            El lugar correcto para aprender, compartir y crear con AngularJS.
-          </p>
-        </div>
-      </a>
-    </div>
-  </div>
+	<div class="container">
+		<div class="section-header wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+			<h2 class="dark-text">Eventos de la comunidad</h2>
+			<div class="colored-line">
+			</div>
+			<div class="section-description">
+				Asiste, aprende, programa, comparte y diviértete. Eventos para todos los niveles de experiencia.
+			</div>
+			<div class="colored-line">
+			</div>
+		</div>
+		<div class="row">
+			<a class="event-link" href="http://chelajs.com/" target="_blank">
+				<div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+					<div class="service-icon">
+						<img src="/images/chela-js-logo.png" alt="" height="120px">
+					</div>
+					<h3>ChelaJs</h3>
+					<h6>Próximo evento: 05 de Noviembre</h6>
+					<p>
+						Un grupo de developers se reúnen a tomar javascript con el pretexto de hablar del mejor lenguaje hoy en día: cerveza.
+					</p>
+				</div>
+			</a>
+			<a class="event-link" href="http://nodebots.mx/" target="_blank">
+				<div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+					<div class="service-icon">
+						<img src="images/nodebotsmx-logo.png" alt="" height="120px">
+					</div>
+					<h3>NodeBotsMx</h3>
+					<h6>Próximo evento: 27 de Septiembre</h6>
+					<p>Usa tus poderes de JavasScript para controlar también el mundo físico</p>
+				</div>
+			</a>
+			<a class="event-link" href="http://angularjsmexico.com/" target="_blank">
+				<div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+					<div class="service-icon">
+						<img src="images/logo-angular-mx.png" alt="" height="120px">
+					</div>
+					<h3>AngularJS México</h3>
+					<h6>Próximo evento: 25 de Octubre</h6>
+					<p>
+						El lugar correcto para aprender, compartir y crear con AngularJS.
+					</p>
+				</div>
+			</a>
+		</div>
+	</div>
+</section>
+<section class="app-brief deep-dark-bg" id="newsletters">
+	<div class="container">	
+		<div class="row">
+			<div class="col-md-7 left-align wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s">
+				<h4 class="white-text">Último newsletter</h4>
+				<h2 class="white-text">{{newsletter.title}}</h2>
+				<div class="colored-line-left">
+				</div>
+				<div class="white-text">{{ newsletter.content|safe }}</div>
+			</div>
+			<div class="col-md-offset-7 col-md-5 relative" data-wow-offset="10" data-wow-duration="1.5s">
+				<a class="btn btn-primary" href="/newsletters" type="submit" id="view-newsletter" name="submit" data-style="expand-left">Ver anteriores</a>
+			</div>
+		</div>
+	</div>
 </section>
 {% endblock %}

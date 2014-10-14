@@ -7,6 +7,19 @@ MAIN COLOR CODE: #e5c41a
 DEEP COLOR CODE: #bb9e0a
 =========================================
 ----------------------------------------- */
+.white-text {
+    color: #ffffff;
+}
+
+.dark-text {
+    color: #272727;
+}
+
+.deep-dark-bg {
+    background: #161616 !important;
+    padding-bottom: 60px;
+}
+
 
 .color-overlay {
     background: rgba(229, 196, 26, 0.95);
