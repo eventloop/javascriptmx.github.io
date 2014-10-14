@@ -3,11 +3,28 @@
 
 {% block content %}
   <div class="post fadeInLeft animated">
-    <h1>{{ article.title }}</h1>
-    <div>
+    <h1 class="post-title">{{ article.title }}</h1>
+    <div class="post-content">
       {% autoescape false %}
         {{ article.content }}
       {% endautoescape %}
+    </div>
+
+    <div class="meta">
+      {% if article.author %}
+      <div class="author clearfix">
+        <a href="{{ article.author.url }}" class="author-avatar pull-left">
+          {% if article.author.avatar %}
+            <img src="{{ article.author.avatar }}" class="img-circle" alt="">
+          {% endif %}
+        </a>
+        <div class="author-info">
+          <div class="author-name"><strong>{{ article.author.name }}</strong></div>
+          <div class="author-description text-muted">{{ article.author.description }}</div>
+          <a href="{{ article.author.url }}">{{ article.author.url }}</a>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </div>
 {% endblock %}
