@@ -1,0 +1,13 @@
+{
+  "title" : "Introducción a D3.js",
+  "path"  : "introduccion-a-d3js",
+  "description": "D3.js (Data-Driven Documents) es una de las librerías de JavaScript más populares que nos permite hacer visualizaciones de datos y añadirlas en un navegador utilizando HTML, SVG y CSS.",
+  "date" : "Mon Oct 13 2014 22:13:40 GMT-0500 (CDT)",
+  "author": {
+    "name": "Marco Godínez",
+    "description": "Frontend Web Developer",
+    "email": "markotom@gmail.com",
+    "avatar": "http://gravatar.com/avatar/340cf435956320a68d9d1e6a82ba13c3",
+    "url": "http://github.com/markotom"
+  }
+}
