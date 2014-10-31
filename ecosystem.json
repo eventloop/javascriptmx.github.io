@@ -1,6 +1,6 @@
 {
   "apps" : [{
-    "name"      : "WEB",
+    "name"      : "javascriptmx",
     "script"    : "server.js",
     "env": {
     },
