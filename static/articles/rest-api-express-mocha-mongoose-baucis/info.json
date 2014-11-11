@@ -1,0 +1,13 @@
+{
+	"title" : "REST API en Express usando Mocha, Mongoose y Baucis",
+	"path"  : "rest-api-express-mocha-mongoose-baucis",
+  "description": "Crearemos una REST API en Express con MongoDB, para ello vamos a utilizar Mongoose y Baucis. Usaremos Mocha para hacer pruebas unitarias y tener más claridad de lo que queremos obtener.",
+	"date" : "Tue Nov 11 2014 05:57:04 GMT-0600 (CST)",
+  "author": {
+    "name": "Marco Godínez",
+    "description": "Frontend Web Developer",
+    "email": "markotom@gmail.com",
+    "avatar": "http://gravatar.com/avatar/340cf435956320a68d9d1e6a82ba13c3",
+    "url": "http://github.com/markotom"
+  }
+}
