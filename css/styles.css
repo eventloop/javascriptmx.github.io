@@ -1,7 +1,3 @@
-/* =======================================================================
-Kane - Responsive App Landing Page
-======================================================================= */
-
 /* --------------------------------------
 =========================================
 GLOBAL STYLES
@@ -314,7 +310,7 @@ header {
 }
 
 header .color-overlay {
-    min-height: 900px;
+    padding: 0 100px;
 }
 
 header .full-screen {
@@ -524,11 +520,12 @@ header .intro-section .buttons {
     padding: 0 20px;
 }
 
-.services .event-link > div {
-    height: 400px;
+.services .event-link {
+    display: flex;
+    height: 200px;
 }
 
-.services .event-link > div:hover {
+.services .event-link:hover div {
     background: #eee;
     border-radius: 5px;
 }
